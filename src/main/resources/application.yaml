@@ -1,0 +1,62 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss} %magenta([%thread]) %highlight(%-5level) %logger.%M
+      - %msg%n'
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+  devtools:
+    restart:
+      poll-interval: 1s
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: marcio
+    password: marcio
+    driver-class-name: org.postgresql.Driver
+    jdbcUrl: jdbc:postgresql://localhost:5432/postgres
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 40
+      minimum-idle: 8
+      initialization-fail-timeout: 2000
+      isolate-internal-queries: true
+      validation-timeout: 3000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useLocalSessionState: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none # Use 'update' for development, 'none' for production
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.generate-ddl: false
+      hibernate:
+        default_schema: grafico
+        format_sql: true
+        show_sql: true
+
+
