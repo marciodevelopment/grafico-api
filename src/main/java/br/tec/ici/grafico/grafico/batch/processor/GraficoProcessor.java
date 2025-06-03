@@ -23,10 +23,10 @@ public class GraficoProcessor implements ItemProcessor<GraficoEntity, GraficoRes
 
   @Override
   public GraficoResultadoDTO process(GraficoEntity grafico) throws Exception {
-    JdbcTemplate jdbcTemplate = jdbcTemplateMap.get(grafico.getNmSistema());
+    JdbcTemplate jdbcTemplate = jdbcTemplateMap.get(grafico.getIdSistema());
 
     if (jdbcTemplate == null) {
-      throw new IllegalArgumentException("No datasource for sistema: " + grafico.getNmSistema());
+      throw new IllegalArgumentException("No datasource for sistema: " + grafico.getIdSistema());
     }
     var objectMapper = new ObjectMapper();
     List<Map<String, Object>> result = jdbcTemplate.queryForList(grafico.getSql());

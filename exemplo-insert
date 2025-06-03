@@ -1,0 +1,25 @@
+INSERT INTO grafico (
+    grafico,
+    tempo_atualizacao_segundos,
+    sql,
+    id_sistema,
+    data_proxima_execucao
+) VALUES (
+    'atendimento-pacientes',
+    10,
+    'select * from atendimentoPaciente',
+    'samu',
+    now()
+);
+
+
+
+INSERT INTO sistema (
+    id_sistema, nome_sistema, url, username, password, driver_class_name, jdbc_url
+) VALUES
+(
+    'esaude', 'esaude', 'jdbc:postgresql://localhost:5432/oracle', 'marcio', 'marcio', 'org.postgresql.Driver', 'jdbc:postgresql://localhost:5432/oracle'
+),
+(
+    '2', 'samu', 'jdbc:postgresql://localhost:5432/pgs', 'marcio', 'marcio', 'org.postgresql.Driver', 'jdbc:postgresql://localhost:5432/pgs'
+);

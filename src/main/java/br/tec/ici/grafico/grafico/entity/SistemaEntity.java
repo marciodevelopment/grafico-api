@@ -8,15 +8,15 @@ import lombok.Getter;
 
 @Getter
 @Entity
-@Table(name = "JdbcConfig")
-public class JdbcConfigEntity {
+@Table(name = "sistema")
+public class SistemaEntity {
 
   @Id
-  @Column(name = "cdJdbcConfig")
-  private Integer id;
+  @Column(name = "id_sistema")
+  private String idSistema;
 
-  @Column(name = "nmSistema", nullable = false)
-  private String nmSistema;
+  @Column(name = "nome_sistema", nullable = false)
+  private String nome_sistema;
 
   @Column(name = "url", nullable = false)
   private String url;

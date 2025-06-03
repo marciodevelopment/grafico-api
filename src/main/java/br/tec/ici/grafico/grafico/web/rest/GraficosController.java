@@ -33,7 +33,7 @@ public class GraficosController {
     List<Map<String, Object>> result = jdbcTemplate.queryForList("select * from login");
     String json = new ObjectMapper().writeValueAsString(result);
     log.info("json {}", json);
-    return this.graficoService.findJsonByNmCache(nmGrafico);
+    return this.graficoService.findJsonByGrafico(nmGrafico);
 
   }
 

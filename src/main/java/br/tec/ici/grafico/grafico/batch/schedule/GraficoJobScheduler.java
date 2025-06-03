@@ -5,10 +5,8 @@ import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class GraficoJobScheduler {
 
   private final JobLauncher jobLauncher;
@@ -20,7 +18,7 @@ public class GraficoJobScheduler {
     this.envioFilaJob = envioFilaJob;
   }
 
-  @Scheduled(fixedDelay = 5000) // runs every 5 seconds after the last execution finishes
+  //@Scheduled(fixedDelay = 5000) // runs every 5 seconds after the last execution finishes
   public void runJob() {
     try {
       JobParameters jobParameters = new JobParametersBuilder()

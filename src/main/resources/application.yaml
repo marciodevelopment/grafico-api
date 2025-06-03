@@ -55,7 +55,7 @@ spring:
     properties:
       hibernate.generate-ddl: false
       hibernate:
-        default_schema: grafico
+        default_schema: graficonovo
         format_sql: true
         show_sql: true
 

@@ -1,7 +1,7 @@
 package br.tec.ici.grafico.grafico.config.datasource;
 
-import br.tec.ici.grafico.grafico.entity.JdbcConfigEntity;
-import br.tec.ici.grafico.grafico.service.JdbcConfigService;
+import br.tec.ici.grafico.grafico.entity.SistemaEntity;
+import br.tec.ici.grafico.grafico.service.SistemaService;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.sql.DataSource;
@@ -15,14 +15,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class DynamicJdbcTemplateConfig {
 
-  private final JdbcConfigService jdbcConfigService;
+  private final SistemaService sistemaService;
 
   @Bean
   public Map<String, JdbcTemplate> jdbcTemplateMap() {
 
-    return jdbcConfigService.findAll().stream()
+    return sistemaService.findAll().stream()
         .collect(Collectors.toMap(
-            JdbcConfigEntity::getNmSistema,
+            SistemaEntity::getIdSistema,
             config -> {
               DataSource dataSource = DataSourceBuilder.create()
                   .url(config.getUrl())
