@@ -12,6 +12,35 @@ INSERT INTO grafico (
     now()
 );
 
+INSERT INTO grafico (
+    grafico,
+    tempo_atualizacao_segundos,
+    sql,
+    id_sistema,
+    data_proxima_execucao
+) VALUES (
+    'atendimento-pacientes',
+    10,
+    'select * from atendimentoPaciente',
+    'samu',
+    now()
+);
+
+
+INSERT INTO grafico (
+    grafico,
+    horas_atualizacao,
+    sql,
+    id_sistema,
+    data_proxima_execucao
+) VALUES (
+    'vacinacao-bairro',
+    "5;14", -- Atualiza o cache as 5 horas e 14 horas
+    'CALL atualizar_percentual_vacinacao_existente(); select * from VacinacaoBairro;',
+    'esaude',
+    now()
+);
+
 
 
 INSERT INTO sistema (
