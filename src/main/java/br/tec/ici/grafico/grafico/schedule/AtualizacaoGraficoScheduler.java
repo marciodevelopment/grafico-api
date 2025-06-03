@@ -13,7 +13,7 @@ public class AtualizacaoGraficoScheduler {
 
   private final AtualizacaoCacheService atualizacaoCacheService;
 
-  @Scheduled(fixedDelay = 5000) // runs every 5 seconds after the last execution finishes
+  @Scheduled(fixedDelayString = "${scheduler.cache.fixed-delay}")
   public void runJob() {
     this.atualizacaoCacheService.atualizarCache();
   }

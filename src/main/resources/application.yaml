@@ -15,9 +15,6 @@ logging:
     console: '%d{dd-MM-yyyy HH:mm:ss} %magenta([%thread]) %highlight(%-5level) %logger.%M
       - %msg%n'
 spring:
-  batch:
-    jdbc:
-      initialize-schema: always
   devtools:
     restart:
       poll-interval: 1s
@@ -60,3 +57,6 @@ spring:
         show_sql: true
 
 
+scheduler:
+  cache:
+    fixed-delay: 10000
